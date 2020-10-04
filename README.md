@@ -262,7 +262,9 @@ By Prefecture information.
   
 
 ・request url path : http://localhost:8080/address/{prefecture}  
-http://localhost:8080/address/東京都 →(Base64 encode) http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD   
+http://localhost:8080/address/東京都  
+→(Base64 encode)  
+http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD   
   
 
 ```sh
