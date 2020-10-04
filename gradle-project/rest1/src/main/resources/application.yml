@@ -1,0 +1,63 @@
+spring:
+  profiles:
+    active: localhost
+    
+  jpa:
+    hibernate:
+      ddl-auto: none
+      
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type:
+          EnumTyp: trace
+          descriptor:
+            sql:
+              BasicBinder: trace
+          
+
+server: 
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      
+---
+spring:
+  profiles: localhost
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/rest
+    username: root
+    password:
+    sql-script-encoding: utf-8
+    initialization-mode: never
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+    
+mysql:
+  connection:
+    hostname: localhost
+    username: root
+    password: 
+    
+---
+spring:
+  profiles: docker
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql/rest
+    username: rest
+    password: rest
+    sql-script-encoding: utf-8
+    
+mysql:
+  connection:
+    hostname: mysql
+    username: rest
+    password: rest
+    
+    

@@ -1,0 +1,15 @@
+# Others
+.DS_Store
+
+# docker-project
+*.class
+/mysql/settings/*
+/gradle-project/**/build
+
+# git
+.git
+
+# Eclipse
+.classpath
+.project
+

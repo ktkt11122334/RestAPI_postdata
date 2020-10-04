@@ -1,0 +1,6 @@
+--INSERT INTO get1 VALUES
+--("http://xxx.test1"),
+--("http://xxx.test2"),
+--("http://xxx.test3"),
+--("http://xxx.test4"),
+--("http://xxx.test5");
