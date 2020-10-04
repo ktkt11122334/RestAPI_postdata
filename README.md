@@ -1,27 +1,29 @@
 # RestAPI Test Develop
-
-This project is a test delevopment of RestAPI.
+ 
+This project is a test delevopment of RestAPI.  
 Basically, I implemented the contents written in the reference book, [Technology to support WEB(WEBを支える技術)](https://www.amazon.co.jp/Web%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93-HTTP%E3%80%81URI%E3%80%81HTML%E3%80%81%E3%81%9D%E3%81%97%E3%81%A6REST-WEB-PRESS-plus/dp/4774142042/ref=sr_1_1_sspa?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=Web%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93&qid=1601822055&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzMFNERlBMRjYwOUY5JmVuY3J5cHRlZElkPUEwNzczMjcyMUlLWVdSMzRaUFRGNyZlbmNyeXB0ZWRBZElkPUExVzhUTFY2Uk9XVDA2JndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==)
-
-
-This project is started up with Spring Boot on Docker container.
-You can create the Docker Containers by the inscruction shown beleow and
-confirm Response Data from command(curl).
-
-
-
+  
+  
+This project is started up with Spring Boot on Docker container.  
+You can create the Docker Containers by the inscruction shown beleow and  
+confirm Response Data from command(curl).  
+  
+  
+  
 ## Create Docker Container
-
+  
 * Start to create docker container.
-
+  
 ```sh
 
 docker-compose up -d
 
 ```
 
+  
 If you have a timeout error of pulling CentOS,
 please retry.
+  
 
 ```sh
 
@@ -29,9 +31,10 @@ ERROR: Service 'centos' failed to build: error pulling image configuration: Get 
 
 ```
 
-
-
+ 
+  
 * Build the gradle project(rest1) to start up Spring Boot.
+  
 
 ```sh
 
@@ -39,8 +42,9 @@ docker exec -w /gradle-project/rest1 rest-container gradle build
 
 ```
 
-
+  
 * Confirm built project and start up Spring Boot app using java command with app-profile of docker.
+  
 
 ```sh
 
@@ -51,8 +55,9 @@ docker exec -w /gradle-project/rest1/build/libs rest-container java -jar rest1-0
 
 ```
 
-
+  
 * Down docker container when you end to use this app.
+  
 
 ```sh
 
@@ -60,8 +65,9 @@ docker-compose down
 
 ```
 
-
+  
 * If you want to use this app again, Input commands below
+  
 
 ```sh
 
@@ -70,16 +76,20 @@ docker exec -w /gradle-project/rest1/build/libs rest-container java -jar rest1-0
 
 ```
 
-
+  
+  
+  
 
 ## Operation test
 
+  
 * Step1
+  
+Firstly, please insert datas required to this app from api  
+＊When you restart this app, this instruction should be skipped.  
+  
 
-Firstly, please insert datas required to this app from api 
-＊When you restart this app, this instruction should be skipped.
-
-```
+```sh
 
 curl -i -X POST http://localhost:8080/rest/import/postdata
 
@@ -92,10 +102,11 @@ Created new post data
 
 ```
 
-
+  
 ●Step2
-
-Get specific URL lists.
+  
+Get specific URL lists.  
+  
 
 ```sh
 
@@ -126,11 +137,12 @@ Date: Sun, 04 Oct 2020 14:58:53 GMT
 
 ```
 
-
-●Step3
-
-Add request datas to Database.
-If you request the url path of same number, response to status code 200(Response OK)
+  
+●Step3  
+  
+Add request datas to database.  
+If you request the url path of same number, response to status code 200(Response OK)  
+  
 
 ```sh
 
@@ -183,11 +195,12 @@ curl -i http://localhost:8080/post1/getOne/1
 
 ```
 
-
-
+  
+  
 ●Step3
-
-Test http method OPTIONS
+  
+Test http method OPTIONS  
+  
 
 ```sh
 
@@ -208,14 +221,15 @@ Date: Sun, 04 Oct 2020 15:08:17 GMT
 
 ```
 
-
-
-●Step4
-
-Get Japanese prefecture information 
-
-
-By post code
+  
+  
+●Step4  
+  
+Get Japanese prefecture information   
+  
+  
+By post code  
+  
 
 ```sh
 
@@ -242,12 +256,14 @@ Date: Sun, 04 Oct 2020 15:10:31 GMT
 
 ```
 
+  
+  
+By Prefecture information.  
+  
 
-
-By Prefecture information.
-
-・request url path : http://localhost:8080/address/{prefecture}
-http://localhost:8080/address/東京都 →(Base64 encode) http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD 
+・request url path : http://localhost:8080/address/{prefecture}  
+http://localhost:8080/address/東京都 →(Base64 encode) http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD   
+  
 
 ```sh
 
@@ -274,14 +290,15 @@ curl  -G -i http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD
 
 ```
 
-
-
-
-・request url path : http://localhost:8080/address/{prefecture}/{city}
-
-http://localhost:8080/address/東京都/豊島区 
-→(Base64 encode) 
-http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD 
+  
+  
+  
+・request url path : http://localhost:8080/address/{prefecture}/{city}  
+  
+http://localhost:8080/address/東京都/豊島区   
+→(Base64 encode)   
+http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD   
+  
 
 ```sh
 
@@ -309,12 +326,14 @@ curl  -G -i http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD/%E8%B1%8A%
 
 ```
 
-
-・request url path : http://localhost:8080/address/{prefecture}/{city}/{town}
-
-http://localhost:8080/address/東京都/豊島区/東池袋サンシャイン６０（６０階）
-→(Base64 encode) 
-http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD/%E8%B1%8A%E5%B3%B6%E5%8C%BA/%E6%9D%B1%E6%B1%A0%E8%A2%8B%E3%82%B5%E3%83%B3%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%B3%EF%BC%96%EF%BC%90%EF%BC%88%EF%BC%96%EF%BC%90%E9%9A%8E%EF%BC%89
+  
+  
+・request url path : http://localhost:8080/address/{prefecture}/{city}/{town}  
+  
+http://localhost:8080/address/東京都/豊島区/東池袋サンシャイン６０（６０階）  
+→(Base64 encode)   
+http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD/%E8%B1%8A%E5%B3%B6%E5%8C%BA/%E6%9D%B1%E6%B1%A0%E8%A2%8B%E3%82%B5%E3%83%B3%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%B3%EF%BC%96%EF%BC%90%EF%BC%88%EF%BC%96%EF%BC%90%E9%9A%8E%EF%BC%89  
+  
 
 ```sh
 
@@ -336,8 +355,10 @@ curl  -G -i http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD/%E8%B1%8A%
 
 ```
 
-
-Add a prefecture information 
+  
+  
+Add a prefecture information   
+  
 
 ```sh
 
@@ -387,3 +408,6 @@ Date: Sun, 04 Oct 2020 15:25:20 GMT
 }
 
 ```
+
+  
+  
