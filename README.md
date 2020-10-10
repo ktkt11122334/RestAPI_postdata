@@ -91,11 +91,11 @@ docker exec -w /gradle-project/rest1/build/libs rest-container java -jar rest1-0
 ## Operation test
 
   
-●Step1
-　
+●Step1  
+　  
 Firstly, please insert datas required to this app from api  
 ＊When you restart this app, this instruction should be skipped.  
-　
+　  
 
 ```sh
 
@@ -110,14 +110,14 @@ Created new post data
 
 ```
 
-　
-　
-　
-
-●Step2
-　
+　  
+　  
+　  
+  
+●Step2  
+　  
 Get specific URL lists.  
-　
+　  
 
 ```sh
 
@@ -148,14 +148,14 @@ Date: Sun, 04 Oct 2020 14:58:53 GMT
 
 ```
 
-　
-　
+　  
+　  
 
 ●Step3  
-　
+　  
 Add request datas to database.  
 If you request the url path of same number, response to status code 200(Response OK)  
-　
+　  
 
 ```sh
 
@@ -208,13 +208,13 @@ curl -i http://localhost:8080/post1/getOne/1
 
 ```
 
-　
-　
+　  
+　  
 
-●Step3
-　
+●Step3  
+　  
 Test http method OPTIONS  
-　
+　  
 
 ```sh
 
@@ -235,16 +235,16 @@ Date: Sun, 04 Oct 2020 15:08:17 GMT
 
 ```
 
-　
-　
+　  
+　  
 
 ●Step4  
-　
+　  
 Get Japanese prefecture information   
-　
-　
+　  
+　  
 By post code  
-　
+　  
 
 ```sh
 
@@ -271,18 +271,18 @@ Date: Sun, 04 Oct 2020 15:10:31 GMT
 
 ```
 
-　
-　
+　  
+　  
 By Prefecture information.  
-　
+　  
 
-・request url path : http://localhost:8080/address/{prefecture} 
-　
-　 
+・request url path : http://localhost:8080/address/{prefecture}   
+　  
+　   
 http://localhost:8080/address/東京都  
 →(Base64 encode)  
 http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD   
-　
+　  
 
 ```sh
 
@@ -309,17 +309,17 @@ curl  -G -i http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD
 
 ```
 
-　
-　
-　
+　  
+　  
+　  
 ・request url path : http://localhost:8080/address/{prefecture}/{city}  
-　
-　
-　
+　  
+　  
+　  
 http://localhost:8080/address/東京都/豊島区   
 →(Base64 encode)   
 http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD   
-　
+　  
 
 ```sh
 
@@ -347,17 +347,17 @@ curl  -G -i http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD/%E8%B1%8A%
 
 ```
 
-　
-　
-　
+　  
+　  
+　  
 ・request url path : http://localhost:8080/address/{prefecture}/{city}/{town}  
-　
-　
-　
+　  
+　  
+　  
 http://localhost:8080/address/東京都/豊島区/東池袋サンシャイン６０（６０階）  
 →(Base64 encode)   
 http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD/%E8%B1%8A%E5%B3%B6%E5%8C%BA/%E6%9D%B1%E6%B1%A0%E8%A2%8B%E3%82%B5%E3%83%B3%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%B3%EF%BC%96%EF%BC%90%EF%BC%88%EF%BC%96%EF%BC%90%E9%9A%8E%EF%BC%89  
-　
+　  
 
 ```sh
 
@@ -379,11 +379,11 @@ curl  -G -i http://localhost:8080/address/%E6%9D%B1%E4%BA%AC%E9%83%BD/%E8%B1%8A%
 
 ```
 
-　
-　
-
+　  
+　  
+  
 Add a prefecture information
-　
+　  
 
 ```sh
 
@@ -434,5 +434,5 @@ Date: Sun, 04 Oct 2020 15:25:20 GMT
 
 ```
 
-　
-　
+　  
+　  
