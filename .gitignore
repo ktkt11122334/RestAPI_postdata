@@ -4,6 +4,7 @@
 # docker-project
 *.class
 /mysql/settings/*
+!/mysql/settings/.gitkeep
 /gradle-project/**/build
 
 # git
